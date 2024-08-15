@@ -1,0 +1,1 @@
+curl -X GET localhost:8080/beers/5063114bd386d8fadbd6b004

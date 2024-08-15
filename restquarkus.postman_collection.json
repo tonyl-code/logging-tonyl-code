@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "16477497-7fce-4884-8d47-4a2ff6a0488c",
+		"name": "restquarkus Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37037358"
+	},
+	"item": [
+		{
+			"name": "Endpoint_tests",
+			"item": [
+				{
+					"name": "get beer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_single_beer_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/5063114bd386d8fadbd6b004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"5063114bd386d8fadbd6b004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_paged_beer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/paged/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"paged",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify_beer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5063114bd386d8fadbd6b004\",\n    \"name\": \"ModifiedBeer\",\n    \"style\": \"ModifiedStyle\",\n    \"hop\": \"ModifiedHop\",\n    \"yeast\": \"ModifiedYeast\",\n    \"malt\": \"ModifiedMalt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/beers/5063114bd386d8fadbd6b004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"5063114bd386d8fadbd6b004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_single_beer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/5063114bd386d8fadbd6b004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"5063114bd386d8fadbd6b004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_beer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"TestBeer\",\n    \"style\": \"TestStyle\",\n    \"hop\": \"TestHop\",\n    \"yeast\": \"TestYeast\",\n    \"malt\": \"TestMalt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/beers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers"
+							]
+						},
+						"description": "Adds a beer using POST"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative_tests",
+			"item": [
+				{
+					"name": "get_all_beers_wrong_path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_beer_bad_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/888888888888888888888888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"888888888888888888888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_paged_beer_negative_index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/paged/-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"paged",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify_beer_bad_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5063114bd386d8fadbd6b004\",\n    \"name\": \"TestBeer2\",\n    \"style\": \"ModifiedStyle\",\n    \"hop\": \"ModifiedHop\",\n    \"yeast\": \"ModifiedYeast\",\n    \"malt\": \"ModifiedMalt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/beers/888888888888888888888888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"888888888888888888888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify_beer_missing_field",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5063114bd386d8fadbd6b004\",\n    \"name\": \"ModifiedBeerAgain\",\n    \"style\": \"ModifiedStyle\",\n    \"hop\": \"ModifiedHop\",\n    \"yeast\": \"ModifiedYeast\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/beers/5063114bd386d8fadbd6b004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"5063114bd386d8fadbd6b004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_nonexisting_beer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/beers/888888888888888888888888",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers",
+								"888888888888888888888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_beer_missing_fields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"TestBeer\",\n    \"style\": \"TestStyle\",\n    \"hop\": \"TestHop\",\n    \"yeast\": \"TestYeast\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/beers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"beers"
+							]
+						},
+						"description": "Adds a beer using POST"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
